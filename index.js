@@ -13,5 +13,9 @@ function submitData(name, email) {
     })
         .then(res => res.json())
         .then(users => document.body.innerHTML=users['id'])
-        .catch((error) => { document.body.innerHTML = error.message })
+        .catch((error) => {
+            let message = "Unauthorized Access";
+            document.body.appendChild(message)
+            console.log(error.message)
+        })
 }

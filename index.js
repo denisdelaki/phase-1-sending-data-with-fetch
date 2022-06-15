@@ -1,6 +1,6 @@
 // Add your code here
 function submitData(name, email) {
-    fetch("http://localhost:3000/users", {
+     return fetch("http://localhost:3000/users", {
       method: "POST",
       headers: {
         "content-Type": "application/json",
@@ -13,9 +13,7 @@ function submitData(name, email) {
     })
         .then(res => res.json())
         .then(users => document.body.innerHTML=users['id'])
-        .catch((error) => {
-            let message = "Unauthorized Access";
-            document.body.appendChild(message)
-            console.log(error.message)
+        .catch((err) => {
+            document.body.innerHTML=err.message
         })
 }
